@@ -26,10 +26,10 @@ export default () => {
 
   // Assert the response
   const createPostRespCheck = check(createPostResp, {
-    'status is 201': () => createPostResp.status == 201,
+    'createPostResp status is 201': () => createPostResp.status == 201,
   });
 
-  // Add assertion failure of error rate calculation
+  // Add assertion failure for error rate calculation
   errorRate.add(!createPostRespCheck)
 
   // Extract value from response
@@ -40,9 +40,9 @@ export default () => {
 
   // Assert the response
   const deletePostRespCheck = check(deletePostResp, {
-    'Status is 200': r => r.status == 200
+    'deletePostResp status is 200': () => deletePostResp.status == 200
   })
 
-  // Add assertion failure of error rate calculation
+  // Add assertion failure for error rate calculation
   errorRate.add(!deletePostRespCheck)
 };

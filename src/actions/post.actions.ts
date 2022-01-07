@@ -12,6 +12,10 @@ export const createPost = (title: string, body: string, userId: string) => {
   })
 }
 
+export const getPost = (postId: string) => {
+  return http.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+}
+
 export const deletePost = (postId: string) => {
   return http.del(`https://jsonplaceholder.typicode.com/posts/${postId}`)
 }
