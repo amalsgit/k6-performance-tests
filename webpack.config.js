@@ -5,7 +5,7 @@ const GlobEntries = require('webpack-glob-entries');
 
 module.exports = {
   mode: 'production',
-  entry: GlobEntries('./src/*test*.ts'), // Generates multiple entry for each test
+  entry: GlobEntries('./src/tests/*test*.ts'), // Generates multiple entry for each test
   output: {
     path: path.join(__dirname, 'dist'),
     libraryTarget: 'commonjs',
@@ -26,7 +26,7 @@ module.exports = {
   target: 'web',
   externals: /^(k6|https?\:\/\/)(\/.*)?/,
   // Generate map files for compiled scripts
-  devtool: "source-map",
+  devtool: 'source-map',
   stats: {
     colors: true,
   },
@@ -35,10 +35,12 @@ module.exports = {
     // Copy assets to the destination folder
     // see `src/post-file-test.ts` for an test example using an asset
     new CopyPlugin({
-      patterns: [{ 
-        from: path.resolve(__dirname, 'assets'), 
-        noErrorOnMissing: true 
-      }],
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'assets'),
+          noErrorOnMissing: true,
+        },
+      ],
     }),
   ],
   optimization: {
