@@ -1,4 +1,4 @@
-import http from "k6/http"
+import http from 'k6/http'
 
 export const createPost = (title: string, body: string, userId: string) => {
   return http.post('https://jsonplaceholder.typicode.com/posts', JSON.stringify({

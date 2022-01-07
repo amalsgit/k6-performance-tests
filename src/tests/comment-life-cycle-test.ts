@@ -1,13 +1,13 @@
-import { check } from "k6";
-import { Rate } from "k6/metrics";
-import { Options } from "k6/options";
-import { getPostComments } from "../actions/comment.actions";
-import { cleanupPost, getPostId } from "../fixtures/post.fixture";
+import { check } from 'k6'
+import { Rate } from 'k6/metrics'
+import { Options } from 'k6/options'
+import { getPostComments } from '../actions/comment.actions'
+import { cleanupPost, getPostId } from '../fixtures/post.fixture'
 
 // Custom metric keeping track of the percentage of failure of assertions
 export const errorRate = new Rate('errors')
 
-export let options: Options = {
+export const options: Options = {
   vus: 1,
   duration: '1s',
   thresholds: {
@@ -19,7 +19,7 @@ export let options: Options = {
     // http_req_duration: ['p(95)<2000'], // 95% of the requests should be done within 2 seconds
     http_req_failed: ['rate==0.0'], // There should be no http request failures
   },
-};
+}
 
 // Before all setup
 export const setup = (): { postId: string } => {
@@ -41,7 +41,7 @@ export default (data: { postId: string }) => {
   // Assert the response
   const getCommentsRespCheck = check(getCommentsResp, {
     'createPostResp status is 200': () => getCommentsResp.status == 200,
-  });
+  })
 
   // Add assertion failure for error rate calculation
   errorRate.add(!getCommentsRespCheck)

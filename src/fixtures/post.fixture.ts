@@ -1,6 +1,6 @@
 // A place to define the Setup and Teardown methods
-import { check } from "k6";
-import { createPost, deletePost } from "../actions/post.actions";
+import { check } from 'k6'
+import { createPost, deletePost } from '../actions/post.actions'
 
 export const getPostId = (): { postId: string } => {
   // Create a new post
@@ -9,7 +9,7 @@ export const getPostId = (): { postId: string } => {
   // Assert the response
   check(createPostResp, {
     'createPostResp status is 201': () => createPostResp.status == 201,
-  });
+  })
 
   // Extract value from response
   const postId = createPostResp.json('id') as string
