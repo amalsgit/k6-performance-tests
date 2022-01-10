@@ -26,6 +26,8 @@
   },
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "build": "webpack"
+    "build": "webpack",
+    "monitors:up": "docker-compose -f docker-compose.yaml up -d influxdb grafana",
+    "monitors:down": "docker-compose -f docker-compose.yaml down"
   }
 }
