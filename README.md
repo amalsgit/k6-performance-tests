@@ -36,9 +36,12 @@ $ k6 run dist/post-life-cycle-test.js
 
 House rules for writing tests:
 
-- The test code is located in `src` folder
+- The tests are located in `src/tests` folder
+- The `fixtures` folder consist of methods to create and manage test data. These can be potentially use in `setup` and `teardown` methods.
+- The `actions` folder consists of individual api calls that are composed together to create a user scenario in tests. Always define individual api calls here
 - The entry points for the tests need to have "_test_" word in the name to distinguish them from auxiliary files. You can change the entry [here](./webpack.config.js#L8).
 - If static files are required then add them to `./assets` folder. Its content gets copied to the destination folder (`dist`) along with compiled scripts.
+- `utils/config.ts` file is the place to manage application environments and urls
 
 ### Transpiling and Bundling
 

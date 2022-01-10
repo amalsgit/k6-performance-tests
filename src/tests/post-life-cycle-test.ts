@@ -20,6 +20,7 @@ export const options: Options = {
   },
 }
 
+// A sample test showcasing how a user flow can be automated with multiple api calls
 export default () => {
   // Create a new post
   const createPostResp = createPost('foo title', 'bar body', '1')

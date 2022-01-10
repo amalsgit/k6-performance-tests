@@ -21,6 +21,8 @@ export const options: Options = {
   },
 }
 
+// A sample test showcasing how a user flow can be automated with multiple api calls along with test data and test teardown setup.
+
 // Before all setup
 export const setup = (): { postId: string } => {
   return getPostId()

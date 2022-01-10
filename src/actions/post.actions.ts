@@ -1,7 +1,8 @@
 import http from 'k6/http'
+import config from '../utils/config'
 
 export const createPost = (title: string, body: string, userId: string) => {
-  return http.post('https://jsonplaceholder.typicode.com/posts', JSON.stringify({
+  return http.post(`${config.jsonPlaceholderUrl}/posts`, JSON.stringify({
     title,
     body,
     userId,
@@ -13,9 +14,9 @@ export const createPost = (title: string, body: string, userId: string) => {
 }
 
 export const getPost = (postId: string) => {
-  return http.get(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+  return http.get(`${config.jsonPlaceholderUrl}/posts/${postId}`)
 }
 
 export const deletePost = (postId: string) => {
-  return http.del(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+  return http.del(`${config.jsonPlaceholderUrl}/posts/${postId}`)
 }
