@@ -1,7 +1,7 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-const GlobEntries = require('webpack-glob-entries');
+const path = require('path')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
+const GlobEntries = require('webpack-glob-entries')
 
 module.exports = {
   mode: 'production',
@@ -47,4 +47,4 @@ module.exports = {
     // Don't minimize, as it's not used in the browser
     minimize: false,
   },
-};
+}

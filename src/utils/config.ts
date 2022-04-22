@@ -11,7 +11,9 @@ const config = {
 }
 
 // Resolve the test environment. Note that environment variables are read by k6 using the '__ENV' notation
-const testEnv = __ENV.TEST_ENV || ('development' as keyof typeof config)
+const testEnv =
+  (__ENV.TEST_ENV as keyof typeof config) ||
+  ('development' as keyof typeof config)
 
 console.log(`Test will be run against ${testEnv} environment`)
 
